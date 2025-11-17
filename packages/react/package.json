@@ -1,0 +1,30 @@
+{
+  "name": "@gennex/eslint-react",
+  "version": "0.0.1",
+  "description": "React ESLint configuration",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "tsc",
+    "release": "pnpm publish --no-git-checks",
+    "version": "pnpm version --no-git-tag-version"
+  },
+  "dependencies": {
+    "@gennex/eslint-common": "workspace:*",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist",
+    "!/**/tests",
+    "!/**/dist/tests",
+    "!/**/__tests__"
+  ]
+}

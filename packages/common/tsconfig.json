@@ -1,0 +1,12 @@
+{
+  "extends": "tsconfigs/nodejs-module",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noImplicitAny": false
+  },
+  "include": [
+    "./index.ts"
+  ]
+}
