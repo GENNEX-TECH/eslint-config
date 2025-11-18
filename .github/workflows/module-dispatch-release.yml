@@ -50,16 +50,14 @@ jobs:
           echo "MODULE: $MODULE"
           echo "BUILD_MODE: $BUILD_MODE"
 
-      # Yarn 4 setup (TUYỆT ĐỐI KHÔNG CÀI YARN BẰNG npm)
       - name: Enable Yarn (Corepack)
         run: |
           corepack enable
           corepack prepare yarn@4.10.3 --activate
 
-      # Install dependencies using Yarn 4
       - name: Install dependencies
         run: |
-          yarn install --immutable
+          yarn install
 
       - name: Build + Version module
         run: |
@@ -67,10 +65,10 @@ jobs:
           rm -rf packages/$MODULE/dist
 
           echo "Compiling module..."
-          yarn --filter "packages/$MODULE" compile
+          yarn workspace @gennex/eslint-$MODULE compile
 
           echo "Versioning module..."
-          yarn --filter "packages/$MODULE" version $BUILD_MODE
+          yarn workspace @gennex/eslint-$MODULE version $BUILD_MODE
 
       - name: Publish package to npm registry
         run: |

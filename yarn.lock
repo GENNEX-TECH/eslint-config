@@ -268,9 +268,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gennex/config@workspace:.":
+"@gennex/eslint-common@workspace:*, @gennex/eslint-common@workspace:packages/common":
   version: 0.0.0-use.local
-  resolution: "@gennex/config@workspace:."
+  resolution: "@gennex/eslint-common@workspace:packages/common"
+  languageName: unknown
+  linkType: soft
+
+"@gennex/eslint-config@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@gennex/eslint-config@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.1"
     "@types/eslint__js": "npm:^9.14.0"
@@ -285,12 +291,6 @@ __metadata:
     tsconfigs: "npm:^5.0.0"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.46.4"
-  languageName: unknown
-  linkType: soft
-
-"@gennex/eslint-common@workspace:*, @gennex/eslint-common@workspace:packages/common":
-  version: 0.0.0-use.local
-  resolution: "@gennex/eslint-common@workspace:packages/common"
   languageName: unknown
   linkType: soft
 

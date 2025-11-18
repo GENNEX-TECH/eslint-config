@@ -7,8 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "compile": "tsc",
-    "release": "pnpm publish --no-git-checks",
-    "version": "pnpm version --no-git-tag-version"
+    "release": "yarn publish --no-git-checks",
+    "version": "yarn version --no-git-tag-version"
   },
   "dependencies": {
     "@gennex/eslint-common": "workspace:*",
