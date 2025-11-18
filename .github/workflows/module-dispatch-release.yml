@@ -50,7 +50,6 @@ jobs:
 
       - name: Install dependencies 🔧
         run: |
-          npm install -g yarn 
           corepack enable
           corepack prepare yarn@4.10.3 --activate
           yarn install
