@@ -1,13 +1,17 @@
 {
-  "name": "@gennex/config",
+  "name": "@gennex/eslint-config",
   "version": "1.0.0",
+  "private": false,
   "description": "Gennex Technology - Linter configurations",
+  "homepage": "https://github.com/GENNEX-TECH/config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GENNEX-TECH/config.git"
+  },
   "license": "MIT",
-  "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@4.10.3",
   "scripts": {
     "deps-clean": "sh ./scripts/deps-clean.sh",
     "compile": "sh ./scripts/compile.sh",
@@ -33,5 +37,6 @@
     "@types/eslint__js": "^9.14.0",
     "@types/node": "^24.10.1",
     "tsconfigs": "^5.0.0"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }
