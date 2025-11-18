@@ -41,16 +41,18 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config user.name "mt-ci gh-action"
-          git config user.email "mt-ci@gh-action.none"
+          git config user.name "gn-ci gh-action"
+          git config user.email "gn-ci@gh-action.none"
 
       - name: Verify Module + Build mode
         run: |
-          echo "mt-ci | Module: $MODULE | Build mode: $BUILD_MODE"
+          echo "gn-ci | Module: $MODULE | Build mode: $BUILD_MODE"
 
       - name: Install dependencies 🔧
         run: |
-          npm install -g yarn
+          npm install -g yarn 
+          corepack enable
+          corepack prepare yarn@4.10.3 --activate
           yarn install
 
       - name: Building + Versioning application artifact
