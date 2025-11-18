@@ -5,14 +5,14 @@ on:
     inputs:
       module:
         type: choice
-        description: Build Mode (common|react)
+        description: Module (common | react)
         options:
           - common
           - react
 
       build_mode:
         type: choice
-        description: Build Mode (patch | minor | major | prepatch | preminor | premajor | prerelease)
+        description: Build mode (patch | minor | major | prepatch | preminor | premajor | prerelease)
         options:
           - patch
           - minor
@@ -29,6 +29,7 @@ env:
 jobs:
   build-release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,35 +40,39 @@ jobs:
           node-version: "22.14.0"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Setup Git
+      - name: Setup Git identity
         run: |
           git config user.name "gn-ci gh-action"
           git config user.email "gn-ci@gh-action.none"
 
-      - name: Verify Module + Build mode
+      - name: Verify Inputs
         run: |
-          echo "gn-ci | Module: $MODULE | Build mode: $BUILD_MODE"
+          echo "MODULE: $MODULE"
+          echo "BUILD_MODE: $BUILD_MODE"
 
-      - name: Install dependencies 🔧
+      # Yarn 4 setup (TUYỆT ĐỐI KHÔNG CÀI YARN BẰNG npm)
+      - name: Enable Yarn (Corepack)
         run: |
           corepack enable
           corepack prepare yarn@4.10.3 --activate
-          yarn install
 
-      - name: Building + Versioning application artifact
+      # Install dependencies using Yarn 4
+      - name: Install dependencies
         run: |
-          echo "Module: $MODULE | Build mode: $BUILD_MODE"
+          yarn install --immutable
 
-          echo "Cleaning up release folder"
+      - name: Build + Version module
+        run: |
+          echo "Cleaning old build..."
           rm -rf packages/$MODULE/dist
 
-          echo "Compiling $MODULE"
+          echo "Compiling module..."
           yarn --filter "packages/$MODULE" compile
 
-          echo "Versioning release folder"
+          echo "Versioning module..."
           yarn --filter "packages/$MODULE" version $BUILD_MODE
 
-      - name: Publish package on Registry 📦
+      - name: Publish package to npm registry
         run: |
           cd packages/$MODULE
 
@@ -80,18 +85,18 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
-      - name: Push latest version to repository
+      - name: Push updated version back to repository
         run: |
-          module=${{ github.event.inputs.module }}
           cd packages/$MODULE
 
-          PACKAGE_PATH="./package.json"
-          VERSION=$(jq -r .version $PACKAGE_PATH)
+          VERSION=$(jq -r .version package.json)
+
+          echo "Publishing commit for version $VERSION"
 
           git fetch
           git checkout develop
           git add .
-          git commit -m "Module: $MODULE | Build mode: $BUILD_MODE | Version: $VERSION | Release latest src"
+          git commit -m "Module: $MODULE | Build mode: $BUILD_MODE | Version: $VERSION"
           git push origin develop
 
           git checkout main
