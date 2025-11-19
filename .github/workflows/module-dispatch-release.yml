@@ -21,6 +21,8 @@ on:
           - preminor
           - premajor
           - prerelease
+permissions:
+  contents: write
 
 env:
   MODULE: ${{ github.event.inputs.module }}
