@@ -1,6 +1,6 @@
 {
   "name": "@gennextech/eslint-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React ESLint configuration",
   "license": "MIT",
   "main": "dist/index.js",
