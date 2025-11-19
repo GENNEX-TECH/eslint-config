@@ -1,6 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
-import commonPlugin from "@gennex/eslint-common";
+import commonPlugin from "@gennextech/eslint-common";
 // import tsEslint from "typescript-eslint";
 
 import reactRefreshPlugin from "eslint-plugin-react-refresh";

@@ -1,5 +1,5 @@
 {
-  "name": "@gennex/eslint-common",
+  "name": "@gennextech/eslint-common",
   "version": "0.0.0",
   "description": "Common ESLint configuration",
   "license": "MIT",

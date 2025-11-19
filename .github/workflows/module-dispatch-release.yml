@@ -67,10 +67,10 @@ jobs:
           rm -rf packages/$MODULE/dist
 
           echo "Compiling module..."
-          yarn workspace @gennex/eslint-$MODULE compile
+          yarn workspace @gennextech/eslint-$MODULE compile
 
           echo "Versioning module..."
-          yarn workspace @gennex/eslint-$MODULE version $BUILD_MODE
+          yarn workspace @gennextech/eslint-$MODULE version $BUILD_MODE
 
       - name: Publish package to npm registry
         run: |
