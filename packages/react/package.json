@@ -1,5 +1,5 @@
 {
-  "name": "@gennex/eslint-react",
+  "name": "@gennextech/eslint-react",
   "version": "0.0.0",
   "description": "React ESLint configuration",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "version": "yarn version --no-git-tag-version"
   },
   "dependencies": {
-    "@gennex/eslint-common": "workspace:*",
+    "@gennextech/eslint-common": "workspace:*",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24"
