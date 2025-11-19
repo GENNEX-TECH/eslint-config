@@ -1,6 +1,6 @@
 {
   "name": "@gennex/eslint-common",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "Common ESLint configuration",
   "license": "MIT",
   "main": "dist/index.js",
