@@ -42,8 +42,8 @@ jobs:
 
       - name: Setup Git identity
         run: |
-          git config user.name "gn-ci gh-action"
-          git config user.email "gn-ci@gh-action.none"
+          git config user.name "gennex"
+          git config user.email "anhtai741981@gmail.com"
 
       - name: Verify Inputs
         run: |
