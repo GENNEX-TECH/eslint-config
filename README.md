@@ -1,6 +1,6 @@
 # Gennex Technology eslint configuration
 
-This repository contains the shared ESLint configuration used by the Minimal Technology team. It provides a standardized set of linting rules for your JavaScript and TypeScript projects, helping to ensure code quality and consistency across your projects.
+This repository contains the shared ESLint configuration used by the Gennex Technology team. It provides a standardized set of linting rules for your JavaScript and TypeScript projects, helping to ensure code quality and consistency across your projects.
 
 ## Installation
 
